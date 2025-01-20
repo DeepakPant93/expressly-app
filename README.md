@@ -18,13 +18,13 @@ This document provides an overview of the backend server for the Expressly - Tex
 ### Text Transformation Options
 The backend supports the following transformation capabilities:
 1. **Formats**
-   - For details on supported formats, please refer to the [Expressly Wiki](https://github.com/DeepakPant93/expressly/wiki).
+   - For details on supported formats, please refer to the [Expressly Wiki](https://github.com/DeepakPant93/expressly-app/wiki).
 
 2. **Tones**
-   - For details on supported tones, please refer to the [Expressly Wiki](https://github.com/DeepakPant93/expressly/wiki).
+   - For details on supported tones, please refer to the [Expressly Wiki](https://github.com/DeepakPant93/expressly-app/wiki).
 
 3. **Target Audience**
-   - For details on supported target audiences, please refer to the [Expressly Wiki](https://github.com/DeepakPant93/expressly/wiki).
+   - For details on supported target audiences, please refer to the [Expressly Wiki](https://github.com/DeepakPant93/expressly-app/wiki).
 
 ### Output
 The backend processes user inputs and generates formatted text tailored to the specified preferences. Users can easily copy and utilize the output.
@@ -48,6 +48,9 @@ The backend processes user inputs and generates formatted text tailored to the s
    MODEL=gemini/gemini-1.5-flash
    MODEL_API_KEY=<model_api_key> # Your API key here
    ```
+
+   Generate a new API key for GEMINI model from the [AI Studio](https://aistudio.google.com/app/apikey) website.
+
 2. Modify configuration files as needed:
    - `src/expressly_server/config/agents.yaml`: Agents configuration.
    - `src/expressly_server/config/tasks.yaml`: Tasks configuration.
@@ -63,9 +66,18 @@ To start the backend server and execute tasks:
 crewai run
 ```
 
+### Deployment
+The app is deployed on Hugging Face Spaces. You can try it out [here](https://huggingface.co/spaces/deepakpant/expressly-app).
+
+### Docker
+
+Check the docker documentation [here](https://hub.docker.com/r/deepak93p/expressly-app). To run the docker image, use the following command:
+
+```bash
+docker run -p 7860:7860  -e MODEL="gemini/gemini-1.5-flash" -e MODEL_API_KEY="<model_api_key>" deepak93p/expressly-app
+```
+
 ## Additional Notes
 - Ensure all environment variables are correctly set in the `.env` file check for [.env.example](.env.example) file for reference.
 - Regularly update your agents and tasks configuration to enhance functionality.
 - Refer to the CrewAI documentation for advanced customizations.
-
-This backend server powers the text transformation capabilities of Expressly, making it adaptable to a wide range of use cases.
