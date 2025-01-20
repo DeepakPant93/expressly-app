@@ -2,9 +2,8 @@ name: Deploy to Hugging Face Spaces
 
 on:
     workflow_dispatch: {}
-    push:
-        branches:
-            - main # or master, depending on your default branch
+    release:
+        types: [published]
 
 jobs:
     deploy:

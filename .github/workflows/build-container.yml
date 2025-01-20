@@ -2,9 +2,8 @@ name: Build and Deploy Docker Image
 
 on:
     workflow_dispatch: {}
-    push:
-        branches:
-            - main # or master, depending on your default branch
+    release:
+        types: [published]
 
 env:
     DOCKER_IMAGE: deepak93p/expressly-app # Replace with your DockerHub image
