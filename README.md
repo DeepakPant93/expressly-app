@@ -9,7 +9,7 @@ license: mit
 short_description: Expressly - Text Transformation App
 ---
 
-# Expressly - Text Transformation App Backend
+# Expressly - Text Transformation App
 
 This document provides an overview of the backend server for the Expressly - Text Transformation App. The app is designed to transform text based on user preferences and descriptions, leveraging a CrewAI-based multi-agent AI application.
 
@@ -81,3 +81,18 @@ docker run -p 7860:7860  -e MODEL="gemini/gemini-1.5-flash" -e MODEL_API_KEY="<m
 - Ensure all environment variables are correctly set in the `.env` file check for [.env.example](.env.example) file for reference.
 - Regularly update your agents and tasks configuration to enhance functionality.
 - Refer to the CrewAI documentation for advanced customizations.
+
+## Contributing
+
+We love contributions! Whether you’ve spotted a bug or have an awesome idea, feel free to open an issue or submit a PR.
+
+## Support
+ If you like my work and want to support give a ⭐ to the repo.
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://buymeacoffee.com/deepakpant) 
+
+Thank you so much ❤️.
+
+## License
+
+See the LICENSE file for more details.
