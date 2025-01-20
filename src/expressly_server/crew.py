@@ -10,7 +10,7 @@ from expressly_server.utils.utils import load_json_data, sanitize_input
 
 load_dotenv()
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+MODEL_API_KEY = os.getenv("MODEL_API_KEY")
 MODEL = os.getenv("MODEL")
 
 FORMAT_JSON_FILE = "format.json"
@@ -32,7 +32,7 @@ class ExpresslyServer:
     agents_config = "config/agents.yaml"
     tasks_config = "config/tasks.yaml"
 
-    llm = LLM(model=MODEL, api_key=GEMINI_API_KEY, temperature=0.7)
+    llm = LLM(model=MODEL, api_key=MODEL_API_KEY, temperature=0.7)
 
     @before_kickoff
     def validate_inputs(

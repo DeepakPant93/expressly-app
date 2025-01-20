@@ -32,9 +32,9 @@ The backend processes user inputs and generates formatted text tailored to the s
 ## Backend Configuration
 
 ### Prerequisites
-1. Install `uv` if not already installed:
+1. Install `uv` and `crewai` if not already installed:
    ```bash
-   pip install uv
+   pip install uv crewai
    ```
 2. Navigate to your project directory and install dependencies:
    ```bash
@@ -46,13 +46,16 @@ The backend processes user inputs and generates formatted text tailored to the s
 1. Add environment variables to the `.env` file:
    ```plaintext
    MODEL=gemini/gemini-1.5-flash
-   GEMINI_API_KEY=<gemini_api_key> # Your API key here
+   MODEL_API_KEY=<model_api_key> # Your API key here
    ```
 2. Modify configuration files as needed:
-   - `src/expressly_server/config/agents.yaml`: Define your agents.
-   - `src/expressly_server/config/tasks.yaml`: Define your tasks.
-   - `src/expressly_server/crew.py`: Add custom logic, tools, and arguments.
-   - `src/expressly_server/main.py`: Customize inputs for agents and tasks.
+   - `src/expressly_server/config/agents.yaml`: Agents configuration.
+   - `src/expressly_server/config/tasks.yaml`: Tasks configuration.
+   - `src/expressly_server/crew.py`: Crew configuration with custom logic, tools, and arguments.
+   - `src/expressly_server/main.py`: Entrypoint to kick off the crew with inputs for agents and tasks.
+   - `src/expressly_server/app.py`: FastAPI configuration.
+   - `src/expressly_server/web_app.py`: Gradio configuration.
+
 
 ### Running the Backend
 To start the backend server and execute tasks:
@@ -61,7 +64,7 @@ crewai run
 ```
 
 ## Additional Notes
-- Ensure all environment variables are correctly set in the `.env` file.
+- Ensure all environment variables are correctly set in the `.env` file check for [.env.example](.env.example) file for reference.
 - Regularly update your agents and tasks configuration to enhance functionality.
 - Refer to the CrewAI documentation for advanced customizations.
 

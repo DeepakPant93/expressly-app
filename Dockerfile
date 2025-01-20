@@ -41,8 +41,10 @@ USER user
 # Copy the application code into the container
 COPY --chown=user . .
 
+# Expose the port on which the application will run it's a default Gradio port.
 EXPOSE 7860
 
+# Set the server name as 0.0.0.0 to access it from any host
 ENV GRADIO_SERVER_NAME="0.0.0.0"
 
 # Define the command to run your application
