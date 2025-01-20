@@ -1,0 +1,33 @@
+name: Build and Deploy Docker Image
+
+on:
+    workflow_dispatch: {}
+    push:
+        branches:
+            - main # or master, depending on your default branch
+
+env:
+    DOCKER_IMAGE: deepak93p/expressly-app # Replace with your DockerHub image
+
+
+jobs:
+    build-push-docker-image:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Login to Docker Hub
+              env:
+                  DOCKER_USER: deepak93p
+                  DOCKER_PWD: ${{ secrets.DOCKERHUB_PUSH_TOKEN }}
+              run: echo $DOCKER_PWD | docker login -u $DOCKER_USER --password-stdin
+
+            - name: Build and Push Docker Image
+              run: |
+                docker build -t ${{ env.DOCKER_IMAGE }}:latest -f Dockerfile .
+                docker push ${{ env.DOCKER_IMAGE }}:latest
+                
+            - name: Clean up Docker system
+              run: docker system prune -f

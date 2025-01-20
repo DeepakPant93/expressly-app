@@ -1,0 +1,21 @@
+[project]
+name = "expressly_server"
+version = "0.1.0"
+description = "expressly-server using crewAI"
+authors = [{ name = "Deepak Pant", email = "deepak.93p@gmail.com" }]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "crewai[tools]>=0.86.0,<1.0.0",
+    "gradio>=5.12.0,<5.13.0"
+]
+
+[project.scripts]
+expressly = "expressly_server.web_app:launch"
+run_crew = "expressly_server.main:run"
+train = "expressly_server.main:train"
+replay = "expressly_server.main:replay"
+test = "expressly_server.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
